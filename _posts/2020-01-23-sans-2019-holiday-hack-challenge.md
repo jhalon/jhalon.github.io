@@ -1038,7 +1038,6 @@ After running the search, we see that the XML file in question is that of Window
 Right, so by using some complex powershell commands, let's parse this XML file, and see what kind of objects are contained within in.
 
 ~~~console
-  
 PS /home/elf> [xml]$xml = Get-Content -Path /etc/systemd/system/timers.target.wants/EventLog.xml
 PS /home/elf> $xml
 
