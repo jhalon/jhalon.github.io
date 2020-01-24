@@ -10,7 +10,7 @@ Happy Holidays and a Happy New Year 2020 readers!
 
 {% include toc title="Solutions Index" icon="file-text" %}
 
-Thanks for joining me today as we go over the [SANS 2019 Holiday Hack Challenge] (https://www.holidayhackchallenge.com/2019/)!
+Thanks for joining me today as we go over the [SANS 2019 Holiday Hack Challenge](https://www.holidayhackchallenge.com/2019/)!
 
 As always, SANS has done an amazing job at making this as fun as possible, while also being very educational!
 
