@@ -21,7 +21,7 @@ Just a quick heads up - this is a very comprehensive and long post. I will inclu
 For others, the challenges are still available to play through - and will be till next year! So, if you want to follow along, or give it a go by yourself, then you can start [here](https://www.holidayhackchallenge.com/2019/)!
 ## Introduction
 
-This year the whole SANS Holiday Hack again takes place at Elf University! Upon creating an account, and logging in, you are dropped in front of the ElfU train entrance.
+This year the whole SANS Holiday Hack takes place at Elf University! Upon creating an account, and logging in, you are dropped in front of the ElfU train entrance.
 
 From here, as well as from the Holiday Hack website, we get to follow the story and access our challenges.
 
