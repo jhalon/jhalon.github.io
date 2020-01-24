@@ -259,7 +259,7 @@ Luckily for us, we if scroll through the DeepBlueCLI wiki, we come across an exa
 
 So, let's execute that command against our event log file, and after a few minutes we should see the following data:
 
-~~~powershell
+~~~console
 PS C:\Users\User\Desktop\Holiday Hack\Security.evtx\DeepBlueCLI\DeepBlueCLI-master> .\DeepBlue.ps1 ..\..\Security.evtx
 
 Date    : 11/19/2019 6:22:46 AM
@@ -311,7 +311,7 @@ Results : The use of multiple user account access attempts with explicit credent
 
 We see a lot of [4648 Event ID's](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4648) which dictates that "A logon was attempted using explicit credentials". If we scroll down a little lower, we see other logon events, but this time we see the [4672 Event ID](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4672). This event lets you know whenever an account assigned any "administrator equivalent" user rights logs on.
 
-~~~powershell
+~~~console
 Date    : 8/23/2019 7:00:20 PM
 Log     : Security
 EventID : 4672
@@ -628,7 +628,7 @@ After reading the information in the terminal we learn that we need to recalibra
 
 We also learn that by executing `(Invoke-WebRequest -Uri http://localhost:1225/).RawContent` we can see the settings and access the Web API to tune the laser... so let's do just that!
 
-```powershell
+```console
 PS /home/elf> (Invoke-WebRequest -Uri http://localhost:1225/).RawContent
 HTTP/1.0 200 OK                                                                                   
 Server: Werkzeug/0.16.0                                                                           
@@ -665,7 +665,7 @@ O=5&H=5&He=5&N=5&Ne=20&Ar=10&Xe=10&F=20&Kr=10&Rn=10
 
 Alright, awesome! So we can see all the API endpoints that we can use to tune the laser and see the current power level. Let's check the current laser output by calling the `/api/output` endpoint.
 
-~~~powershell
+~~~console
 PS /home/elf> (Invoke-WebRequest -Uri http://localhost:1225/api/output).RawContent
 HTTP/1.0 200 OK                                                                                   
 Server: Werkzeug/0.16.0                                                                           
@@ -678,7 +678,7 @@ Failure - Only 3.36 Mega-Jollies of Laser Output Reached!
 
 Hmm... so we only have 3.36 Mega-Jollies of laser output. Let's read that `callingcard.txt` file and see if it won't help us in fixing this mess!
 
-~~~powershell
+~~~console
 PS /home/elf> type /home/callingcard.txt  
 What's become of your dear laser?  
 Fa la la la la, la la la la  
@@ -696,7 +696,7 @@ Commands in history? Well since this is PowerShell, we can actually see what com
 
 In PowerShell, we can use the [Get-History](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-history?view=powershell-7) command to see previous command input.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-History
 Id CommandLine
   -- -----------
@@ -716,7 +716,7 @@ Nice, so we got a list of the command history! Right away, in #7 we can see that
 
 Also, in #9 we see a continuation of the riddle... but it's cut off. So what we can do is select that specific history ID, and then use the [Format-List](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/format-list?view=powershell-7) function to format the list/long line of text for better readability. We can also use `fl` as a short hand for Format-List, as seen below.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-History -Id 9 | fl
 
 Id                 : 9
@@ -734,7 +734,7 @@ Well if we think about `name=value` parameters that are shared system wide, then
 
 So let's go ahead and use the `Get-ChildItem` command against that to see what we can discover.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-ChildItem -Path Env:
 
 Name                           Value
@@ -765,7 +765,7 @@ username                       elf
 
 Right away we see we have a `riddle` variable with a value! Unfortunately for us... it's cut off. So let's go ahead and grab the values of each key, and format that for readability.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-ChildItem -Path Env: | select Value | fl 
 Value : /bin/su
 Value : false
@@ -799,7 +799,7 @@ Nice, now we can read the riddle! The initial line of `squeezed and compressed` 
 
 Let's do just that, but since there might be a lot of data, we can use the [Select-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-object?view=powershell-7) function to select the top 10 results as follows.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-ChildItem -Path /etc/ -Recurse | Sort-Object LastWriteTime -Descending | Select-Object -first 10
 
     Directory: /etc/apt
@@ -830,7 +830,7 @@ d-r---          12/13/19  5:15 PM                timers.target.wants
 
 We can see that the first object is in `/etc/apt/archive`, so let's go ahead and use the [Expand-Archive](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-7) command to uncompress the archive and then let's view the files within it.
 
-~~~powershell
+~~~console
 PS /home/elf> Expand-Archive -LiteralPath /etc/apt/archive  
 PS /home/elf> dir  
 Directory: /home/elf  
@@ -862,7 +862,7 @@ Right away we see we have two files in the `refraction` folder within the archiv
 
 Unfortunately, we can't just call the file directly to execute it like we do in linux because we will get an error like so:
 
-~~~powershell
+~~~console
 PS /home/elf> cd ./archive/refraction/
 PS /home/elf/archive/refraction> ./runme.elf
 Program 'runme.elf' failed to run: No such file or directoryAt line:1 char:1
@@ -877,7 +877,7 @@ At line:1 char:1
 
 We can simply fix this and give execution privileges to the file by using [chmod](https://www.computerhope.com/unix/uchmod.htm), and then executing the file.
 
-~~~powershell
+~~~console
 PS /home/elf/archive/refraction> chmod +x ./runme.elf  
 PS /home/elf/archive/refraction> ./runme.elf  
 refraction?val=1.867
@@ -885,7 +885,7 @@ refraction?val=1.867
 
 Boom, and there we go! We got the next value for the laser, and it's the refraction value. Since we have that, let's read that riddle file inside the archive.
 
-~~~powershell
+~~~console
 PS /home/elf> type ./archive/refraction/riddle  
 Very shallow am I in the depths of your elf home. You can find my entity by using my md5 identity:
 
@@ -900,13 +900,13 @@ Simply what I do is recurse the `depths` directory to a level of 3, and then I s
 
 We call the calculated property `FileHash` and set the value as seen by `E=` to an MD5 sum hash. We then write all of this data to a file called `hash`.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-ChildItem -Path ./depths/ -File -Recurse -Depth 3 | Select DirectoryName,Name,LastWriteTime,Length,@{N='FileHash';E={(Get-FileHash -Algorithm MD5 $_).Hash}} >> hash
 ~~~
 
 Once we have that, we can see if the md5 sum provided to us is in that file. If the md5 sum is in fact in the file, then we can select that pattern and tell it to print 5 line before and after that value, as seen below.
 
-~~~powershell
+~~~console
 PS /home/elf> type ./hash | Select-String -Pattern "25520151A320B5B0D21561F92C8F6224"
 FileHash      : 25520151A320B5B0D21561F92C8F6224
 PS /home/elf> type ./hash | Select-String -Pattern "25520151A320B5B0D21561F92C8F6224" -Context 5
@@ -925,7 +925,7 @@ PS /home/elf> type ./hash | Select-String -Pattern "25520151A320B5B0D21561F92C8F
 
 Nice, so the file with the same hash is located in `/home/elf/depths/produce/thhy5hll.txt`. So let's go ahead and read it.
 
-~~~powershell
+~~~console
 PS /home/elf> type /home/elf/depths/produce/thhy5hll.txt  
 temperature?val=-33.5
 
@@ -938,13 +938,13 @@ After reading the next part of the riddle, we see that our next answer lies in a
 
 So, as before, let's recurse the `depths` directory, select the full name, and it's length by creating a new calculated property, and finally let's sort by that property to get the largest value.
 
-~~~powershell
+~~~console
 PS /home/elf> Dir ./depths/ -file -recurse | select Fullname,@{Name=”NameLength”;Expression={$_.fullname.length}} | sort NameLength -Descending | fl >> sort.txt
 ~~~
 
 Once we have all that piped out to a file, let's just select the first 10 items.
 
-~~~powershell
+~~~console
 PS /home/elf> type ./sort.txt | select -first 10  
   
 FullName  : /home/elf/depths/larger/cloud/behavior/beauty/enemy/produce/age/chair/unknown/escape/vote/long/writer/behind/ahead/thin/occasionally/explore/tape/wherever/practical/therefore/cool/plate/ice/play/truth/potatoes/beauty/fourth/careful/dawn/adult/either/burn/end/accurate/rubbed/cake/main/she/threw/eager/trip/to/soon/think/fall/is/greatest/become/accident/labor/sail/dropped/fox/0jhj5xz6.txt  
@@ -971,7 +971,7 @@ Nice, right away we can see that the first file contains our riddle! For this po
 
 So for this, we can simply use [Get-Process](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) to see what current running processes we have. We can also pass the `-IncludeUserName` option so we can see the users who own those processes, since we have to kill them per user in the specific order.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-Process -IncludeUserName
 
      WS(M)   CPU(s)      Id UserName                       ProcessName
@@ -988,7 +988,7 @@ PS /home/elf> Get-Process -IncludeUserName
 
 Alright, so now we need to kill the process' in the order specified. We can do this by using the [Stop-Process](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/stop-process?view=powershell-7) function.
 
-~~~powershell
+~~~console
 PS /home/elf> Stop-Process -Id 25
 PS /home/elf> Stop-Process -Id 26
 PS /home/elf> Stop-Process -Id 27
@@ -1005,7 +1005,7 @@ PS /home/elf> Get-Process -IncludeUserName
 
 With the processes killed, let's see if that directory contains anything... or if it even exists.
 
-~~~powershell
+~~~console
 PS /home/elf> dir /shall/see
 
 
@@ -1023,7 +1023,7 @@ Another riddle? Geez, how much more are there?! Okay, so for this riddle we need
 
 Okay, so let's find that XML file first.
 
-~~~powershell
+~~~console
 PS /home/elf> Get-ChildItem -Path /etc/ -File -Recurse -Include *.xml 
 
     Directory: /etc/systemd/system/timers.target.wants
@@ -1037,7 +1037,7 @@ After running the search, we see that the XML file in question is that of Window
 
 Right, so by using some complex powershell commands, let's parse this XML file, and see what kind of objects are contained within in.
 
-~~~powerhsell
+~~~console
   
 PS /home/elf> [xml]$xml = Get-Content -Path /etc/systemd/system/timers.target.wants/EventLog.xml
 PS /home/elf> $xml
@@ -1077,7 +1077,7 @@ PS /home/elf> type /etc/systemd/system/timers.target.wants/EventLog.xml | select
 
 Seemingly I was right, these are event ID's associated with [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon). Okay, so we need to find that "lonely" event ID. So let's iterate through each `Id` and group these Id object by using the [Group-Object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/group-object?view=powershell-7) function.
 
-~~~powershell
+~~~console
 PS /home/elf> type /etc/systemd/system/timers.target.wants/EventLog.xml | Select-String -Pattern 'N="Id"' | Group-Object
 
 Count Name                      Group
@@ -1092,7 +1092,7 @@ Count Name                      Group
 
 Right away I can see that the lonely event Id is that of "1". So, let's grab that event ID and print the first 150 lines directly after it.
 
-~~~powershell
+~~~console
 PS /home/elf> type /etc/systemd/system/timers.target.wants/EventLog.xml | Select-String -Pattern 'N="Id">1<' -Context 0, 150
 
 >       <I32 N="Id">1</I32>
@@ -1140,7 +1140,7 @@ If we dig through this event log, we should see toward the end the correct gasse
 
 Nice! Now that we finally have all the settings we need, let's go ahead and update the laser using the API.
 
-~~~powershell
+~~~console
 PS /home/elf> (Invoke-WebRequest [http://127.0.0.1:1225/api/off).RawContent](http://127.0.0.1:1225/api/off).RawContent)  
 HTTP/1.0 200 OK  
 Server: Werkzeug/0.16.0  
