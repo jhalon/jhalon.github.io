@@ -39,6 +39,7 @@ permalink: /categories.html
 <li><a href="https://jhalon.github.io/sans-2016-holiday-hack-challenge/">SANS 2016 Holiday Hack Challenge</a></li>
 <li><a href="https://jhalon.github.io/sans-2017-holiday-hack-challenge/">SANS 2017 Holiday Hack Challenge</a></li>
 <li><a href="https://jhalon.github.io/sans-2018-holiday-hack-challenge/">SANS 2018 Holiday Hack Challenge</a></li>
+<li><a href="https://jhalon.github.io/sans-2019-holiday-hack-challenge/">SANS 2019 Holiday Hack Challenge</a></li>
 </ul>
 
 <h2>Pentestit Lab</h2>
