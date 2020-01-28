@@ -3473,7 +3473,8 @@ def generate_key(seed):
 
 seed = 1578008540
 key = generate_key(seed)
-print("Expected Key: 852b4834
+print("Expected Key: 852b4834572d1d62")
+print("Generated Key: " + key)
 ```
 
 Once the script is completed, let's execute it and see what we get!
