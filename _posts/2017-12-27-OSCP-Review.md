@@ -104,6 +104,8 @@ The following materials below will help you take the first steps into Penetratio
   - [Cybrary - Advanced Penetration Testing](https://www.cybrary.it/course/advanced-penetration-testing/)
   - [Cybrary - Web Application Penetration Testing](https://www.cybrary.it/course/web-application-pen-testing/)
   - [HackTheBox Walkthroughs by IppSec](https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA/videos)
+  - [PwnFunction Videos](https://www.youtube.com/channel/UCW6MNdOsqv2E9AjQkv9we7A)
+  - [LiveOverflow: The Secret step-by-step Guide to learn Hacking](https://www.youtube.com/watch?v=2TofunAI6fU)
 * Books
   - [Penetration Testing: A Hands-On Introduction to Hacking](https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking-ebook/dp/B00KME7GN8/ref=sr_1_fkmr0_1?s=digital-text&ie=UTF8&qid=1514402732&sr=1-1-fkmr0&keywords=hiking+georgia+weidman)
   - [The Hacker Playbook 3: Practical Guide To Penetration Testing](https://www.amazon.com/Hacker-Playbook-Practical-Penetration-Testing-ebook/dp/B07CSPFYZ2)
