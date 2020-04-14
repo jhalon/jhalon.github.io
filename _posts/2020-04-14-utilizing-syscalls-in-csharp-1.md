@@ -20,13 +20,13 @@ After some painstaking research, failed trial attempts, long sleepless nights, a
 
 Overall, the point of this blog post series will be to explore how we can use direct system calls in C# by utilizing unmanaged code to bypass EDR and API Hooking. 
 
-But, before we can start writing the code to do that, we must first understand some basics concepts. Such as how system calls work, and some .NET internals - specifically managed vs unmanaged code, P/Invoke, and delegates. Understanding these basics will really help us in understanding how and why our C# code works.
+But, before we can start writing the code to do that, we must first understand some basic concepts. Such as how system calls work, and some .NET internals - specifically managed vs unmanaged code, P/Invoke, and delegates. Understanding these basics will really help us in understanding how and why our C# code works.
 
 Alright, enough of my ramblings - let's get into the basics!
 
 ## Understanding System Calls
 
-In Windows, the process architecture is split between two processor access modes - __user mode__ and __kernel mode__. The idea behind the implementation of these modes was to protect user applications from accessing and modifying any critical OS data. User applications such Chrome, Word, etc. all run in user mode, whereas OS code such as the system services and device drivers all run in kernel mode.
+In Windows, the process architecture is split between two processor access modes - __user mode__ and __kernel mode__. The idea behind the implementation of these modes was to protect user applications from accessing and modifying any critical OS data. User applications such as Chrome, Word, etc. all run in user mode, whereas OS code such as the system services and device drivers all run in kernel mode.
 
 <p align="center"><a href="https://outflank.nl/blog/wp-content/uploads/2019/06/Picture4.png"><img src="https://outflank.nl/blog/wp-content/uploads/2019/06/Picture4.png"></a></p>
 
