@@ -93,7 +93,7 @@ This command tells WinDBG that we want to __unassemble__ (u) the instructions at
 
 <p align="center"><a href="/images/create-file-syscall.jpg"><img src="/images/create-file-syscall.jpg"></a></p>
 
-Overall the NtCreateFile function from ntdll is first responsible for setting up the functions call arguments on the stack. Once done, the function then needs to move it's relevant system call number into `eax` as seen by the 2nd instruction `mov eax, 55`. In this case the syscall number for NtWriteFile is 0x55.
+Overall the NtCreateFile function from ntdll is first responsible for setting up the functions call arguments on the stack. Once done, the function then needs to move it's relevant system call number into `eax` as seen by the 2nd instruction `mov eax, 55`. In this case the syscall number for NtCreateFile is 0x55.
 
 Each native function has a specific syscall number. Now these number tend to change every update - so at times it's very hard to keep up with them. But thanks to [j00ru](https://twitter.com/j00ru) from Google Project Zero, he constantly updates his [Windows X86-64 System Call Table](https://j00ru.vexillium.org/syscalls/nt/64/), so you can use that as a reference anytime a new update comes out.
 
