@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Red Team Tactics: Utilizing Syscalls in C# - Part 1: Prerequisite Knowledge"
+title: "Red Team Tactics: Utilizing Syscalls in C# - Prerequisite Knowledge"
 header:
   overlay_image: syscall-bg.jpg
 ---
@@ -109,7 +109,7 @@ It's simple really. For us to directly invoke the system call, we will build the
 
 For example, if we wanted to write a program that utilizes the __NtCreateFile__ syscall, we can build some simple assembly like so:
 
-```asm
+```
 mov r10, rcx
 mov eax, 0x55 <-- NtCreateFile Syscall Identifier
 syscall
