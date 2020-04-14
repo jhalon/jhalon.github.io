@@ -40,7 +40,7 @@ Within Windows, Windows only utilizes two of these rings - Ring 0 for kernel mod
 
 So what's the reason behind this "ring level" of security? Well, when you start a user-mode application, windows will create a new process for the application and will provide that application with a private [virtual address space](https://docs.microsoft.com/en-us/windows-hardware/drivers/gettingstarted/virtual-address-spaces) and a private [handle table](https://flylib.com/books/en/4.419.1.29/1/).
 
-This "__handle table__" is a __kernel object__ that contains [handles](https://docs.microsoft.com/en-us/windows/win32/sysinfo/handles-and-objects). Handles are simply an abstract reference value to specific system resources, such as a memory regions or location, an open file, or a pipe. It's initial goal is to hides a real memory address from the API user, thus allowing the system to carry out certain management functions like reorganize physical memory.
+This "__handle table__" is a __kernel object__ that contains [handles](https://docs.microsoft.com/en-us/windows/win32/sysinfo/handles-and-objects). Handles are simply an abstract reference value to specific system resources, such as a memory region or location, an open file, or a pipe. It's initial goal is to hides a real memory address from the API user, thus allowing the system to carry out certain management functions like reorganize physical memory.
 
 Overall, a handles job is to tasks internal structures, such as: Tokens, Processes, Threads, and more. An example of a handle can be seen below.
 
