@@ -405,9 +405,11 @@ There's a reason why I wanted to teach you about delegates and native code callb
 
 Now, we learned that delegates are similar to C++ function pointers, but delegates are fully object-oriented, and unlike C++ pointers to member functions, delegates encapsulate both an object instance and a method. We also know that they allow methods to be passed as parameters and can also be used to define callback methods. 
 
-Since delegates are so well versed in the data they can accept, there's something cool that we can do with all this data. For example, let's say we execute a native windows function such as [VirtualAlloc](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc) which allows us to reserve, commit, or change the state of a region of pages in the virtual address space of the calling process. This function will return to us a base address of the allocated region of pages. 
+Since delegates are so well versed in the data they can accept, there's something cool that we can do with all this data. 
 
-Let's say, for this example we allocated some... oh you know... shellcode per say 😏- see where I'm going with this? No!? Fine... let me explain.
+For example, let's say we execute a native windows function such as [VirtualAlloc](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc) which allows us to reserve, commit, or change the state of a region of pages in the virtual address space of the calling process. This function will return to us a base address of the allocated memory region. 
+
+Let's say, for this example, that we allocated some... oh you know... shellcode per say 😏- see where I'm going with this? No!? Fine... let me explain.
 
 So if we were able to allocate a memory region in our process that contained shellcode and returned that to our __delegate__, then we can utilize something called [type marshaling](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/type-marshaling) to transform incoming data types to cross between managed and native code. This means that we can go from an unmanaged function pointer to a delegate! Meaning that we can execute our assembly or byte array shellcode this way!
 
@@ -417,7 +419,7 @@ So with this general idea, let's jump into this a little deeper!
 
 As stated before, **Marshaling**  is the process of transforming types when they need to cross between managed and native code. Marshaling is needed because the types in the managed and unmanaged code are different as we've already seen and demonstrated.
 
-By default, the P/Invoke subsystem tries to do type marshaling based on the default behavior, but for those situations where you need extra control with unmanaged code, you can utilize the [Marshal](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal?view=netframework-4.8) class for things like allocating unmanaged memory, copying unmanaged memory blocks, and converting managed to unmanaged types, as well as other miscellaneous methods used when interacting with unmanaged code.
+By default, the P/Invoke subsystem tries to do type marshaling based on the default behavior. But, for those situations where you need extra control with unmanaged code, you can utilize the [Marshal](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal?view=netframework-4.8) class for things like allocating unmanaged memory, copying unmanaged memory blocks, and converting managed to unmanaged types, as well as other miscellaneous methods used when interacting with unmanaged code.
 
 A quick example of how this marshaling works can be seen below.
 
