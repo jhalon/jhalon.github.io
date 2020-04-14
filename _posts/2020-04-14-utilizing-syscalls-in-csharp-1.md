@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[Red Team Tactics] Utilizing Syscalls in C# - Part 1: Prerequisite Knowledge"
+title: "Red Team Tactics: Utilizing Syscalls in C# - Part 1: Prerequisite Knowledge"
 header:
   overlay_image: syscall-bg.jpg
 ---
