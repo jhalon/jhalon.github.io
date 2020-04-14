@@ -149,7 +149,11 @@ Now while C# is a great language, and it provides some amazing features and inte
 3. It's harder to do anti-debugging tricks in .NET then in native code.
 4. It requires more work and code to interoperate (__interop__) between managed and unmanaged code. 
 
-In case of this blog post, #4 is the one that will cause us the most pain when coding syscalls in C#. Whatever we do in C# is "managed" - so how are we able to efficiently interact with the Windows system and processor? This questions is especially important for us since we want to execute assembly code, and unfortunately for us, there is no inline ASM in C# like there is in C++ with the masm build dependencies.
+In case of this blog post, #4 is the one that will cause us the most pain when coding syscalls in C#. 
+
+Whatever we do in C# is "managed" - so how are we able to efficiently interact with the Windows system and processor?
+
+This questions is especially important for us since we want to execute assembly code, and unfortunately for us, there is no inline ASM in C# like there is in C++ with the masm build dependencies.
 
 Well, thankfully for us, Microsoft provided a way for us to be able to do that! And it's all thanks to the CLR! Thanks to how the CLR was constructed, it actually allows us to pass the boundaries between the managed and unmanaged world. This process is known as __interoperability__ or __interop__ for short. With interop, C# supports pointers and the concept of "unsafe" code for those cases in which direct memory access is critical - that would be us! 😉
 
