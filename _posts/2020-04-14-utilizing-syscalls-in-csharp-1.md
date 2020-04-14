@@ -199,7 +199,7 @@ Now for starters you must know that the data types in C++ do not match those use
 
 We'll brief over converting these data types for MessageBox now so you get a brief idea - but if you want to learn more then I suggest you go read about the [C# Types and Variables](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/types-and-variables).
 
-So for any handle objects related to C++ - such as HWND, the equivalent of that data type (and any pointer in C++) in C# is the [IntPtr Struct](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=netframework-4.8) which is a platform-specific type that is used to represent a pointer or a handle.
+So for any handle objects related to C++, such as HWND, the equivalent of that data type (and any pointer in C++) in C# is the [IntPtr Struct](https://docs.microsoft.com/en-us/dotnet/api/system.intptr?view=netframework-4.8) which is a platform-specific type that is used to represent a pointer or a handle.
 
 Any strings or pointer to string data types in C++ can be set to the C# equivalent - which simply is [string](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/). And for UINT or unsigned integer, that stays the same in C#.
 
