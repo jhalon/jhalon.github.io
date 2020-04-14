@@ -20,6 +20,11 @@ permalink: /categories.html
 <li><a href="https://jhalon.github.io/reverse-engineering-protocols/">Reverse Engineering Network Protocols</a></li>
 </ul>
 
+<h2>Red Team</2>
+<ul>
+<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-1/">Utilizing Syscalls in C# - Part 1: Prerequisite Knowledge</a></li>
+</ul>
+
 <h2>Capture The Flag</h2>
 <ul>
   <li>2018 Google CTF - Beginners Quest</li>
