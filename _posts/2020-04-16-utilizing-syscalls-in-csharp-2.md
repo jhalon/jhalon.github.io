@@ -427,7 +427,7 @@ Well look at that! No calls from or to __ntdll__ were made! Just a simple syscal
 
 And there we have it ladies and gentleman! After learning a lot about Windows Internals, Syscalls, and C#, you should now be able to utilize what you learned here to create your own syscalls in C#!
 
-The final code for this project can be accessed from my GitHub: https://github.com/jhalon/SharpCall
+The final code for this project can be accessed from my GitHub: [SharpCall](https://github.com/jhalon/SharpCall)
 
 Now I did mention at the start of this blog post that i'll post a few links to projects that utilize that same functionality. So if you get stuck or just want some inspiration then I suggest you look at the following projects.
 
