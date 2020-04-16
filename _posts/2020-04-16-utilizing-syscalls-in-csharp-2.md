@@ -13,7 +13,7 @@ For today's blog post, we will focus on actually writing the code to execute a v
 
 My initial idea for this part of the blog post was to walk you through developing an actual tool that we could use during operations - like [Dumpert](https://github.com/outflanknl/Dumpert) or [SysWhispers](https://github.com/jthuraisamy/SysWhispers). But after some consideration to how long and complex the blog post would get, I instead opted to code a simple PoC (Proof of Concept) demonstrating the execution of a single syscall.
 
-I truly believe that after reading this blog post and going over the code example (which I will also post on [GitHub](https://github.com/jhalon/SharpCall) ), you'll be able to code a tool on your own! I'll also include a few links to tools that utilize the same syscall concepts in C# at the end of this post if you need more inspiration.
+I truly believe that after reading this blog post and going over the code example (which I will also post on [GitHub](https://github.com/jhalon/SharpCall)), you'll be able to code a tool on your own! I'll also include a few links to tools that utilize the same syscall concepts in C# at the end of this post if you need more inspiration.
 
 Who knows, maybe I'll opt to do a live stream where we can all write a cool new tool together! 😏
 
