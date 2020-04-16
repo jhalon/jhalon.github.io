@@ -1,4 +1,3 @@
-
 ---
 layout: single
 title: "Red Team Tactics: Utilizing Syscalls in C# - Writing The Code"
