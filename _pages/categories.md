@@ -23,6 +23,7 @@ permalink: /categories.html
 <h2>Red Team</h2>
 <ul>
 <li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-1/">Red Team Tactics: Utilizing Syscalls in C# - Prerequisite Knowledge</a></li>
+<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-2/">Red Team Tactics: Utilizing Syscalls in C# - Writing The Code</a></li>
 </ul>
 
 <h2>Capture The Flag</h2>
