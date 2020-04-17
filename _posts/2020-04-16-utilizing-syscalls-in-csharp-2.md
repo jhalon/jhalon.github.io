@@ -401,7 +401,7 @@ If everything goes well, then upon executing our `SharpCall.exe` executable, our
 
 Alright, the moment of truth. Let's see this bad boy in action!
 
-<video width="800" height="400" controls="controls muted">
+<video width="800" height="400" controls="controls" muted="muted">
   <source src="/images/syscall-code-21.mp4" type="video/mp4">
 </video>
 
