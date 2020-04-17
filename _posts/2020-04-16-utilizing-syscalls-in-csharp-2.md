@@ -169,9 +169,9 @@ After everything is implemented and cleaned up, part of your `Native.cs` file sh
 
 <p align="center"><a href="/images/syscall-code-5.png"><img src="/images/syscall-code-5.png"></a></p>
 
-As a side note - this is just a small subset of the implemented native struts and flags. If you want to see how all this really looks like, then take a look at the [Native.cs](https://github.com/jhalon/SharpCall/blob/master/Native.cs) file from the SharpCall project on my GitHub.
+As a side note - this is just a small subset of the implemented native structs and flags. If you want to see the full implementation, then take a look at the [Native.cs](https://github.com/jhalon/SharpCall/blob/master/Native.cs) file from the SharpCall project on my GitHub.
 
-Also, take note on how call the [public](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public) keyword before each struct and flag enumerator. This is done so that we can access the objects from other files in our program.
+Also, take note on how we call the [public](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/public) keyword before each struct and flag enumerator. This is done so that we can access the objects from other files in our program.
 
 Awesome, now that we have those implemented we can go ahead and convert the C++ data types of NtCreateFile to C# data types. After conversion your C# syntax should look like this:
 
@@ -197,7 +197,7 @@ As said before, usually any pointers or handles in C++ can be converted to an [I
 
 And since we are dealing with creating files and will be passing this data via delegates from managed to unmanaged code (and vice versa), we need to make sure that C# can handle and understand the data type it's marshaling, otherwise we might encounter errors.
 
-The rest should be self explanatory, as the `FileAttributes`, `FileShare` and those data types are simply a representation of the data and values inside the structures and flag enumerators that we added to the `Native` class. This just tells C# that whenever data is passed into these parameters - be it a value or descriptor - then it needs to be referenced against that specific struct/flag enumerator.
+The rest should be self explanatory, as the `FileAttributes`, `FileShare` and those data types are simply a representation of the varaibles and values inside the structures and flag enumerators that we added to the `Native` class. This just tells C# that whenever data is passed into these parameters - be it a value or descriptor - then it needs to be referenced against that specific struct/flag enumerator.
 
 A few others things you might have noticed is that I added the [ref](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref) and [out](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier) keywords to some of the parameters. Simply, these keywords indicate that arguments can to be passed by reference and not by value.
 
@@ -215,19 +215,17 @@ Once done, our Syscalls class should now look something like this.
 
 **NOTE**: You might notice that I added `using static SharpCall.Native` at the top of the file. This simply tells C# to use the static class called `Native`. As explained before, we do this so we can directly use our native functions, struct and flag imports.
 
-Alright, before we go on any further, take note that in the delegates structure, before we set up out NtCreateFile delegate, I'm calling the [UnmanagedFunctionPointer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.unmanagedfunctionpointerattribute?view=netframework-4.8) attribute. This attribute simply controls the marshaling behavior of a delegate signature as an unmanaged function pointer that will be passed to or from unmanaged code. 
+Alright, before we go on any further, take note that in the delegates structure, before we set up our NtCreateFile delegate, I'm calling the [UnmanagedFunctionPointer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.unmanagedfunctionpointerattribute?view=netframework-4.8) attribute. This attribute controls the marshaling behavior of a delegate signature as an unmanaged function pointer when it's passed to or from unmanaged code. 
 
 This is a critical piece of information that we need to include since we will be using unsafe code to marshal our unmanaged pointer from the syscall assembly to these function delegates - as explained in my previous post.
 
 Awesome, we're making some progress! Now that we have our structures, flag enumerators, and our function delegate defined, we can now go ahead and begin implementing the delegate to handle any parameters passed into it. These parameters will initially then be handled by our syscall assembly.
 
-For starters, let's go ahead and create (or in other words instantiate) our NtCreateFile function delegate. We can do this directly after our syscall assembly.
+Let's go ahead and create (or in other words instantiate) our NtCreateFile function delegate. We can do this directly after our syscall assembly.
 
 Once done, your `Syscalls.cs` file should look similar to whats shown below.
 
 <p align="center"><a href="/images/syscall-code-7.png"><img src="/images/syscall-code-7.png"></a></p>
-
-Alright, we're getting closer to completion! 
 
 The brackets with the `TODO` comment (right after our instantiated delegate) is where we will add the code to handle the data being passed to and from managed and unmanaged code.
 
@@ -239,17 +237,15 @@ Once completed your newly updated `Syscalls.cs` file should look similar to the 
 
 <p align="center"><a href="/images/syscall-code-8.png"><img src="/images/syscall-code-8.png"></a></p>
 
-Now, just as I explained in my previous post - within that unsafe context, we will initialize a new byte pointer called  `ptr`  and set that to the value of  `syscall`, which houses our byte array assembly. 
+Now, just as I explained in my previous post - within that unsafe context, we will initialize a new byte pointer called  `ptr`  and set that to the value of  `syscall` - which houses our byte array assembly. 
 
 As you will see below and as explained previously, we utilize the [fixed](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/fixed-statement)  statement for this pointer so that we can prevent the garbage collector from relocating our syscall byte array in memory.
 
-Afterwards, we will simply [cast](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions) the byte array pointer into an IntPtr called  `memoryAddress`. Doing this will allow us to obtain the memory location of where our syscall byte array is located within our application during execution.
+Afterwards, we will simply [cast](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions) the byte array pointer into an IntPtr called  `memoryAddress`. Doing this will allow us to obtain the memory address of where our syscall byte array is located within our application during execution.
 
 Upon doing the above, our updated `Syscall.cs` file should look like the one presented below.
 
 <p align="center"><a href="/images/syscall-code-9.png"><img src="/images/syscall-code-9.png"></a></p>
-
-Alright, did you finish that up? Super!
 
 Now for this part, I suggest you pay close attention as this is where the magic happens! 😉
 
@@ -280,7 +276,7 @@ Mapped Image Name:
 More info: lmv m ntdll More info: !lmi ntdll More info: ln 0x7ffbf6b9cb50 More info: !dh 0x7ffbf6b00000 Content source: 1 (target), length: 7b4b0
 ```
 
-As shown above - notepad has Read and Execute permissions for NtCreatreFile within it's processes virtual memory. The reason for this is that notepad needs to make sure that it execute the syscall and also must be able to read the return value. 
+As shown above - notepad has Read and Execute permissions for NtCreatreFile within it's processes virtual memory. The reason for this is that notepad needs to make sure that it can execute the syscall and also must be able to read the return values. 
 
 In my previous post I explained how each applications virtual address space is private, and how one application can’t alter the data that belongs to another application - unless the process makes part of its private address space available.
 
@@ -288,9 +284,9 @@ Now since we are using unsafe context in C#, and are passing boundaries between 
 
 But how can we do that? Well let me introduce you to our new little friend and lovely function called [VirtualProtect](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualprotect).
 
-What __VritualProtect__ allows us to do is to change the protection on a region of committed pages in the virtual address space of the calling process. Meaning that by using this native function against our syscalls memory region (which we just obtained) we can make sure that the virtual process memory is set to read-write-execute! 
+What __VritualProtect__ allows us to do is to change the protection on a region of committed pages in the virtual address space of the calling process. Meaning that by using this native function against our syscalls memory address (which we just obtained) we can make sure that the virtual process memory is set to read-write-execute! 
 
-So let's implement this native function inside `Native.cs` so that we can use it within `Syscalls.cs` to change the memory protection.
+So with that, let's implement this native function inside `Native.cs`. This way we can use it within `Syscalls.cs` to change the memory protection on our assembly.
 
 As always, let's take a peek at the C structure for this function. 
 
@@ -303,13 +299,13 @@ BOOL VirtualProtect(
 );
 ```
 
-It seems simple enough. We just need to add the [flNewProtect](http://pinvoke.net/default.aspx/kernel32/VirtualQueryEx.html) flags along with the function.
+It seems simple enough. We just need to remeber to add the [flNewProtect](http://pinvoke.net/default.aspx/kernel32/VirtualQueryEx.html) flags along with the function.
 
 Let's go ahead and add this. Once done, our implemented memory protection flags inside the Native class should look like so.
 
 <p align="center"><a href="/images/syscall-code-10.png"><img src="/images/syscall-code-10.png"></a></p>
 
-And the VirtualProtect function will look like following.
+And the VirtualProtect function will look similar to the following.
 
 <p align="center"><a href="/images/syscall-code-11.png"><img src="/images/syscall-code-11.png"></a></p>
 
@@ -317,9 +313,9 @@ Beautiful! We've made a ton of progress already and we're nearing the end! Well.
 
 Now that we have our VirtualProtect function implemented, let's return to our `Syscall.cs` file, and execute the VirtualProtect function against our `memoryAddress` pointer to give it read-write-execute permissions. 
 
-At the same time, let's make sure we make this an __IF__ statement. That way if the function fails, we can throw a [Win32Exception ](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.win32exception?view=netframework-4.8) to show us the error code and stop execution.
+At the same time, let's put this native function inside an __IF__ statement. That way if the function fails, we can throw a [Win32Exception ](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.win32exception?view=netframework-4.8) to show us the error code and stop execution.
 
-Also, make sure to add the `using System.ComponentModel;` statement to the top of you code so that you can use the Win32Exception class.
+Also, make sure to add the `using System.ComponentModel;` directive at the top of your code. This way, you'll be able to use the Win32Exception class.
 
 Upon doing this, our code should look like the following:
 
@@ -343,7 +339,7 @@ Makes sense now? Perfect! Consider yourself a graduate of syscall academy! 👨�
 
 Okay, with all that explained let's go ahead and implement our [Marshal.GetDelegateForFunctionPointer](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.marshal.getdelegateforfunctionpointer?view=netframework-4.8#System_Runtime_InteropServices_Marshal_GetDelegateForFunctionPointer_System_IntPtr_System_Type_) conversion by first instantiating our NtCreateFile delegate and calling it `assembledFunction`. Once done, let's carry out the conversion of our unmanaged pointer to our delegate. 
 
-After that's completed, let's write a simple return statement to return the all the parameters from our syscall via the instantiated `assembledFunction` delegate.
+After that's completed, we can write a simple return statement to return all the parameters from our syscall via the instantiated `assembledFunction` delegate.
 
 Our finalized `Syscall.cs` code should now look like the following.
 
@@ -365,7 +361,7 @@ But before we do that, let me just state one thing. The [OBJECT_ATTRIBUTES](http
 
 Now, for unmanaged code, to initialize this structure we need to call the [RtlUnicodeStringInit](https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/ntstrsafe/nf-ntstrsafe-rtlunicodestringinit) function.
 
-So let's make sure we add that inside our `Native.cs` file so we can utilize that function.
+So, let's make sure we add that function inside our `Native.cs` file so we can utilize that function.
 
 <p align="center"><a href="/images/syscall-code-15.png"><img src="/images/syscall-code-15.png"></a></p>
 
@@ -387,21 +383,21 @@ After writing all that, your final `Program.cs` file should look like the follow
 
 Awesome, we finally completed our code! Now comes the most important part - compiling the code!
 
-In Visual Studio make sure we change the __Solution Configuration__ to "__Release__" and from there click on __Build__ --> __Build Solution__.
+In Visual Studio make sure we change the __Solution Configuration__ to "__Release__". From there, in the toolbar above, click on __Build__ --> __Build Solution__.
 
 After a few seconds you should see the following output, which shows us that compilation was successful!
 
 <p align="center"><a href="/images/syscall-code-19.png"><img src="/images/syscall-code-19.png"></a></p>
 
-Okay, let's not get too excited now! The code might still fail during testing, but I'm sure it won't! 😁
+Okay, let's not get too excited! The code might still fail during testing, but I'm sure it won't! 😁
 
-To test our newly compiled code, let's open up command prompt and navigate to where our project is compiled. In my case that's going to be `C:\Users\User\Source\Repos\SharpCall\bin\Release\`.
+To test our newly compiled code, let's open up command prompt and navigate to where our project is compiled. In my case that's `C:\Users\User\Source\Repos\SharpCall\bin\Release\`.
 
-As you can see, there is no `test.txt` file on my desktop as shown below. 
+As you can see, there is no `test.txt` file on my desktop, as shown below. 
 
 <p align="center"><a href="/images/syscall-code-20.png"><img src="/images/syscall-code-20.png"></a></p>
 
-If everything goes well, then upon executing our `SharpCall.exe` file, our syscall should be executed, and a new `test.txt` should be created on the desktop. 
+If everything goes well, then upon executing our `SharpCall.exe` executable, our syscall should be executed, and a new `test.txt` file should be created on the desktop. 
 
 Alright, the moment of truth. Let's see this bad boy in action!
 
@@ -413,23 +409,27 @@ And there we have it! Our code works and were able to successfully execute our s
 
 But, how can we be so sure that it was the syscall that executed and not just the native api function from __ntdll__?
 
-Well to make sure that it was our syscall that executed, we can once again utilize [Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) to monitor our executable. From here we can view specific Read/Write operation properties and their call stack. 
+Well to make sure that it was our syscall that executed, we can once again utilize [Process Monitor](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) to monitor our executable. 
+
+From here, we can view specific Read/Write operation properties and their call stack. 
 
 <p align="center"><a href="/images/syscall-code-22.png"><img src="/images/syscall-code-22.png"></a></p>
 
-After monitoring the process during execution, we see that there was one `CreateFile` operation carried out against out `test.txt` file. If we were to view the call stack of that operation, we would see the following.
+After monitoring the process during execution, we see that there was one `CreateFile` operation for our `test.txt` file. If we were to view the call stack of that operation, we would see the following.
 
 <p align="center"><a href="/images/syscall-code-23.png"><img src="/images/syscall-code-23.png"></a></p>
 
-Well look at that! No calls from or to __ntdll__ were made! Just a simple syscall from an unknown memory location to __ntoskrnl.exe__! This essentially would bypass any API hooking if there was one implemented on __NtCreateFile__! 😈
+Well look at that! No calls from or to __ntdll__ were made! Just a simple syscall from an unknown memory location to __ntoskrnl.exe__! We made a valid syscall!
+
+This essentially would bypass any API hooking if there was one implemented on __NtCreateFile__! 😈
 
 ## Closing
 
 And there we have it ladies and gentleman! After learning a lot about Windows Internals, Syscalls, and C#, you should now be able to utilize what you learned here to create your own syscalls in C#!
 
-The final code for this project can be accessed from my GitHub: [SharpCall](https://github.com/jhalon/SharpCall)
+The final code for this project has been added to the [SharpCall](https://github.com/jhalon/SharpCall) reposiroty on my Github.
 
-Now I did mention at the start of this blog post that i'll post a few links to projects that utilize that same functionality. So if you get stuck or just want some inspiration then I suggest you look at the following projects.
+Now I did mention at the start of this blog post that I'll post a few links to projects that utilize that same functionality. So if you get stuck or just want some inspiration then I suggest you look at the following projects.
 
 * [SharpMiniDump](https://github.com/b4rtik/SharpMiniDump/)
 * [LOLBITS](https://github.com/Kudaes/LOLBITS)
