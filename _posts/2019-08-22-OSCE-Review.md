@@ -254,6 +254,7 @@ The following materials below will help you practice and expand your skills.
   - [Basics of Windows Shellcode Writing](https://idafchev.github.io/exploit/2017/09/26/writing_windows_shellcode.html)
   - [Create a custom shellcode using System() function](http://www.gosecure.it/blog/art/452/sec/create-a-custom-shellcode-using-system-function/)
   - [Vulnserver KSTET WS2_32 Recv Function Re-Use](https://deceiveyour.team/2018/10/15/vulnserver-kstet-ws2_32-recv-function-re-use/)
+  - [Shellcode: x86 Optimizations - Part 1](https://modexp.wordpress.com/2017/06/07/x86-trix-one/)
   
 This might seem like a ton of material at first, but do know that these topics will overlap and you will have a better understanding of each after the course. Don't expect to know or learn this in one week! It will take you at least 2-3 months after your OSCP to be in a good position to go after your OSCE.
 
