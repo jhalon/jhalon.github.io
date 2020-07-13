@@ -183,9 +183,11 @@ li ol {
 
 // Selection Color Override
 ::selection {
+  color: none;
   background: #fff2a8;
 }
 ::-moz-selection {
+  color: none;
   background: #fff2a8;
 }
 
