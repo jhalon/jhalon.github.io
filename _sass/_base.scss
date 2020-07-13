@@ -181,6 +181,14 @@ li ol {
   margin-top: 0.5em;
 }
 
+// Selection Color Override
+::selection {
+  background: #fff2a8;
+}
+::-moz-selection {
+  background: #fff2a8;
+}
+
 /*
    Media and embeds
    ========================================================================== */
