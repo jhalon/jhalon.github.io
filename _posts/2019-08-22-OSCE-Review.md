@@ -19,7 +19,7 @@ So as I write this post, I want to share my thoughts, experiences, and some tips
 
 ## Background & Experience
 
-Before I delve into the CTP Course and the OSCE, I want to provide you with some information on my background and experience. At time of writing this post I have been in the InfoSec Industry for ~5 years now. I completed my OSCP back in 2017 and detailed my previous background, and experience in my [Offensive Security’s PWK & OSCP Review](https://jhalon.github.io/OSCP-Review/) blog post. Since then I have learned a great deal of new things and currently work as a Security Consultant and Red Team Operator at [NCC Group](https://www.nccgroup.trust/us/). 
+Before I delve into the CTP Course and the OSCE, I want to provide you with some information on my background and experience. At time of writing this post I have been in the InfoSec Industry for ~5 years now. I completed my OSCP back in 2017 and detailed my previous background, and experience in my [Offensive Security’s PWK & OSCP Review](https://jhalon.github.io/OSCP-Review/) blog post. Since then I have learned a great deal of new things and at the time of writing this work as a Security Consultant and Red Team Operator at [NCC Group](https://www.nccgroup.trust/us/). 
 
 Much of the learning I did to prepare me for the OSCE was done outside of work by reading books, practicing in HackTheBox, and competing in CTF's such as the 2018 Google CTF. A big reason I perused the OSCE was not to learn exploit development but to gain new skills that would make me a better red teamer in terms of being able to develop new tools, bypass anti-virus and EDR, to even learning how to fuzz and build more complex exploits if the need was to arise.
 
