@@ -11,7 +11,7 @@ permalink: /about.html
 
 <p align="center"><img src="/images/undraw_hacker_mind_6y85.png" width="500" height="300"></p>
 
-My name is Jack, I'm a current Security Consultant, Security Researcher, and Red Team Operator at [NCC Group](https://twitter.com/NCCsecurityUS).
+My name is Jack, I'm a current Red Team Consultant and R&D Engineer.
 
 My main focus lies in the areas of Network Penetration Testing and Red Team Exercises as well as Windows Internals, but I also have experience in Physical Security, Web Application Security, AWS Security, Hardware/Electronics and some Secure Code Review.
 
