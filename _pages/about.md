@@ -11,9 +11,9 @@ permalink: /about.html
 
 <p align="center"><img src="/images/undraw_hacker_mind_6y85.png" width="500" height="300"></p>
 
-My name is Jack, I'm a current Red Team Consultant and R&D Engineer.
+My name is Jack, I'm a current Red Team Consultant and Offensive R&D Engineer.
 
-My main focus lies in the areas of Network Penetration Testing and Red Team Exercises as well as Windows Internals, but I also have experience in Physical Security, Web Application Security, AWS Security, Hardware/Electronics and some Secure Code Review.
+My main focus lies in the areas of Red Team Adversarial Emulations, Windows Internals and Offensive R&D, but I also have experience in Reverse Engineering, Physical Security, Web Application Security, AWS Security, Hardware/Electronics and some Secure Code Review.
 
 This page will contain posts on my learning experiences, challenges, projects, or just research in my spare time. I hope you enjoy the posts and hopefully learn something new. If you would like to see posts on a certain topic, just reach out to me and I'll see what I can do. Also, feedback is much appreciated!
 
