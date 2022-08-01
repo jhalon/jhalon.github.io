@@ -134,7 +134,7 @@ When a C# program is executed, the assembly is loaded into the CLR, the CLR then
 
 To put it very simply, managed code is just that: code whose execution is managed by a runtime. In this case, the runtime is the **Common Language Runtime**
 
-In therms of unmanaged code, it simply relates to C/C++ and how the programmer is in charge of pretty much everything. The actual program is, essentially, a binary that the operating system loads into memory and starts. Everything else, from memory management to security considerations are a burden of the programmer.
+In therms of unmanaged code, it simply relates to [C/C++](https://www.scaler.com/topics/cpp/difference-between-c-and-cplusplus/) and how the programmer is in charge of pretty much everything. The actual program is, essentially, a binary that the operating system loads into memory and starts. Everything else, from memory management to security considerations are a burden of the programmer.
 
 A good visual example of the the .NET Framework is structured and how it compiles C# to IL then to machine code can be seen below.
 
