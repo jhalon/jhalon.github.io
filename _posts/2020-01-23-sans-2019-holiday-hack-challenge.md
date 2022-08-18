@@ -496,7 +496,7 @@ root@kali:~/HH/sysmon-data# ls -la sysmon-data.json
 
 So we need to find the tool that was used to dump the passwords, but we're not really sure how we can parse the Sysmon JSON logs in linux. If we look back to the hints provided by SugarPlum Mary, we get hints on [Sysmon By Carlos Perez](https://www.darkoperator.com/blog/2014/8/8/sysinternals-sysmon), [EQL Threat Hunting](https://pen-testing.sans.org/blog/2019/12/10/eql-threat-hunting/), as well as a hint to check out some of [Ross Wolf](https://www.endgame.com/our-experts/ross-wolf)'s work on EQL.
 
-After some reading we learn about the [EQL Tool](https://github.com/endgameinc/eql) released by EndGame. The [_Event Query Language_  (EQL)](https://github.com/endgameinc/eqllib) is a standardized query language (similar to SQL) to evaluate Windows events. The tools main purpose is to normalize Windows log events for consistent access and querying.
+After some reading we learn about the [EQL Tool](https://github.com/endgameinc/eql) released by EndGame. The [_Event Query Language_  (EQL)](https://github.com/endgameinc/eqllib) is a standardized query language (similar to [SQL](https://www.scaler.com/topics/sql/)) to evaluate Windows events. The tools main purpose is to normalize Windows log events for consistent access and querying.
 
 Cool, so reading information from the GitHub repository, let's go ahead and install EQL.
 
