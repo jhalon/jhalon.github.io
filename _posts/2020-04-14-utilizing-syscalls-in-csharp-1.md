@@ -28,7 +28,7 @@ Alright, enough of my ramblings - let's get into the basics!
 
 In Windows, the process architecture is split between two processor access modes - __user mode__ and __kernel mode__. The idea behind the implementation of these modes was to protect user applications from accessing and modifying any critical OS data. User applications such as Chrome, Word, etc. all run in user mode, whereas OS code such as the system services and device drivers all run in kernel mode.
 
-<p align="center"><a href="https://outflank.nl/blog/wp-content/uploads/2019/06/Picture4.png"><img src="https://outflank.nl/blog/wp-content/uploads/2019/06/Picture4.png"></a></p>
+<p align="center"><a href="https://outflank.nl/wp-content/uploads/2019/06/Picture4.png"><img src="https://outflank.nl/wp-content/uploads/2019/06/Picture4.png"></a></p>
 
 The kernel mode specifically refers to a mode of execution in a processor that grants access to __all system memory__ and __all CPU instructions__. Some x86 and x64 processors differentiate between these modes by using another term known as __ring levels__. 
 
