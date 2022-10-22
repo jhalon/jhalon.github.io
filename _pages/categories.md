@@ -26,6 +26,11 @@ permalink: /categories.html
 <li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-2/">Red Team Tactics: Utilizing Syscalls in C# - Writing The Code</a></li>
 </ul>
 
+<h2>Exploit Development</h2>
+<ul>
+<li><a href="https://jhalon.github.io/chrome-browser-exploitation-1/">Chrome Browser Exploitation, Part 1: Introduction to V8 and JavaScript Internals</a></li>
+</ul>
+
 <h2>Capture The Flag</h2>
 <ul>
   <li>2018 Google CTF - Beginners Quest</li>
