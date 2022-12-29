@@ -30,6 +30,7 @@ permalink: /categories.html
 <ul>
 <li><a href="https://jhalon.github.io/chrome-browser-exploitation-1/">Chrome Browser Exploitation, Part 1: Introduction to V8 and JavaScript Internals</a></li>
 <li><a href="https://jhalon.github.io/chrome-browser-exploitation-2/">Chrome Browser Exploitation, Part 2: Introduction to Ignition, Sparkplug and JIT Compilation via TurboFan</a></li>
+<li><a href="https://jhalon.github.io/chrome-browser-exploitation-3/">Chrome Browser Exploitation, Part 3: Analyzing and Exploiting CVE-2018-17463</a></li>
 </ul>
 
 <h2>Capture The Flag</h2>
