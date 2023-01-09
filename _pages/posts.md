@@ -11,10 +11,10 @@ permalink: /posts.html
 {% for post in site.posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
-    <h3>{{ currentdate }}</h3>
+    <h2>{{ currentdate }}</h2>
     {% assign date = currentdate %} 
   {% endif %}
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    {{ post.excerpt }}
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    {{ post.excerpt | markdownify | strip_html }}
 {% endfor %}
 </ul>
