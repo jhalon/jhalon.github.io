@@ -33,7 +33,7 @@ permalink: /categories.html
 <li><a href="https://jhalon.github.io/chrome-browser-exploitation-3/">Chrome Browser Exploitation, Part 3: Analyzing and Exploiting CVE-2018-17463</a></li>
 <li>Chrome Browser Exploitation, Part 4: Introduction to the V8 Sandbox</li>
 <li>Chrome Browser Exploitation, Part 5: Introduction to Maglev, V8's Mid-Tier Optimizing Compiler</li>
-<li>Chrome Browser Exploitation, Part 5:Analyzing and Exploiting TBD</li>
+<li>Chrome Browser Exploitation, Part 5: Analyzing and Exploiting TBD</li>
 </ul>
 
 <h2>Capture The Flag</h2>
