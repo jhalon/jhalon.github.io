@@ -90,18 +90,8 @@ For starters I recommend you look at, and even take the following courses:
 
 Now you don't have to take all of these and in the specified order, these are just suggestions. But if you are stuck and don't know where to being, then I recommend following the decision flow tree below to decide where you should start.
 
-```mermaid
-flowchart TD
-  A[Start] --> B(Do you have an IT background?)
-  B -->|Yes| C(Do you understand the concepts in A+)
-  B -->|No| D(Start 220-1102 A+)
-  C --> |Yes| E(Do you understand the concepts in Network+)
-  C --> |No| D
-  E --> |Yes| G(Start SY0-701 Security+)
-  E --> |No| F(Start N10-009 Network+)
-  D -.-> |Next Step| F
-  F -.-> |Next Step| G
-```
+<p align="center"><a href="/images/cert-flow-chart.png"><img src="/images/cert-flow-chart.png"></a></p>
+
 One thing I want to iterate here is don't worry about taking the certification exams just yet, we will cover certifications later in the blog post! For now, just focus on learning, retaining, and understanding the concepts presented in the courses.
 
 Additionally, the CS50 courses are also great, but these are college courses, so some previous knowledge and experience in IT is assumed. If you finished Security+ or are just looking for additional supplemental education to learn coding and more security techniques, then I highly recommend you take those courses! 
