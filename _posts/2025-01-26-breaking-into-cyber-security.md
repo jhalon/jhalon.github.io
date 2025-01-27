@@ -52,7 +52,7 @@ So what are these "core fundamentals" that everyone in security should know?
 	- **Windows Internals**: Understand the basics like file systems, user accounts, the registry, event logs, kernel, userland, and basics around process and memory management.
 	- **Linux Internals**: Become familiar with the file system structure, user permissions, processes, and simple things like daemons.
 	- **Command Line Proficiency**: Become familiar with system commands and learn how to use the Windows Command Prompt and Linux Bash Terminal.
-- **Web Applications:
+- **Web Applications**:
 	- **Basics**: Understand HTTP/HTTPS, request-response cycles, REST APIs, and common web architectures.
 	- **Session Management**: Understand how sessions are managed, including cookies, tokens, and secure session handling.
 	- **Backend Basics**: Understand a common web application stack, and how data is handled on the backend of the application via technologies like SQL.
@@ -509,7 +509,7 @@ __Resources__: Below are a bunch of resources that should either (__A__) help yo
 - [HackTheBox: Intro To Mobile Pentesting](https://www.hackthebox.com/blog/intro-to-mobile-pentesting)
 - [iOS Application Security: The Definitive Guide for Hackers and Developers](https://www.amazon.com/iOS-Application-Security-Definitive-Developers/dp/159327601X)
 - [iOS Hacker's Handbook](https://www.amazon.com/iOS-Hackers-Handbook-Charlie-Miller/dp/1118204123/ref=pd_lpo_sbs_14_t_2/140-2741177-2826762?_encoding=UTF8&psc=1&refRID=PZKSM7AHR73QPKTT4E31)
-- [iOS Hacking Resources(https://github.com/Siguza/ios-resources)
+- [iOS Hacking Resources](https://github.com/Siguza/ios-resources)
 - [iPhone Development Wiki](https://iphone-dev.com/)
 - [Mobile Hacking Labs](https://www.mobilehackinglab.com/free-mobile-hacking-labs)
 - [OWASP Mobile Application Security Testing Guide](https://mas.owasp.org/MASTG/)
