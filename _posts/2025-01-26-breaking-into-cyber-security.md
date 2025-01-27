@@ -16,19 +16,16 @@ Working as a security consultant, I get asked a lot of questions on how to break
 - Third of all, you need to have decent soft skills - ones that will allow you to communicate with your team and clients, and ones that will allow you to write professional reports. 
 - Fourth of all, you need to be willing to accept the fact that sometimes the work or projects you'll be doing will be boring or repetitive. 
 
-{% capture notice-text %} 
-Before you continue reading, take note of this. The previous iteration of this blog post has been active since 2018 and has been widely shared in the security community to many beginners. A lot has changed in security since then, including my knowledge. As such, I have opted to re-write a good chunk of the blog post in order to ensure that it's up to date with today's standards, and that it answers many questions that beginners have. This post is specifically focused around becoming a pentester, but whether you're going into defense or offense, the advice given here applies to everyone.
-
-Additionally, do note that a lot of the advice I am giving you is based off of my own experiences, so always take this information with a grain of salt.
-
-One thing I want to highlight prior to this post is... don't be discouraged when you don't get a security position fresh out of college or when transitioning from another field. This field has advanced so far and so fast that you seriously need to have a solid understanding of fundamentals and core technical concepts to stand a chance. 
-
-I've said this before and I will say it again - **SECURITY IS NOT AN ENTRY LEVEL FIELD**! You can call me a gatekeeper, or whatever, but I'm just being realistic. It will take a lot of time and dedication to break into security if you have little to no experience, but I do hope this blog will help point you in the right direction and help you achieve your goals.{% endcapture %}
-
-NOTE:
-{{ notice-text | markdownify }}
+> __NOTE__: Before you continue reading, take note of this. The previous iteration of this blog post has been active since 2018 and has been widely shared in the security community to many beginners. A lot has changed in security since then, including my knowledge. As such, I have opted to re-write a good chunk of the blog post in order to ensure that it's up to date with today's standards, and that it answers many questions that beginners have. This post is specifically focused around becoming a pentester, but whether you're going into defense or offense, the advice given here applies to everyone.
+> 
+> Additionally, do note that a lot of the advice I am giving you is based off of my own experiences, so always take this information with a grain of salt.
+> 
+> One thing I want to highlight prior to this post is... don't be discouraged when you don't get a security position fresh out of college or when transitioning from another field. This field has advanced so far and so fast that you seriously need to have a solid understanding of fundamentals and core technical concepts to stand a chance. 
+> 
+> I've said this before and I will say it again - **SECURITY IS NOT AN ENTRY LEVEL FIELD**! You can call me a gatekeeper, or whatever, but I'm just being realistic. It will take a lot of time and dedication to break into security if you have little to no experience, but I do hope this blog will help point you in the right direction and help you achieve your goals.
 
 With that being said, let's get into the nitty gritty details of breaking into security!
+
 ## Understanding The Fundamentals
 
 Before we dive into the technical skills required to be a successful pentester or even have a successful security career, it's crucial to first cover the most important aspect of security: **the fundamentals**. 
