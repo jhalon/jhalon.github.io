@@ -223,7 +223,7 @@ __Resources__: Below are a bunch of resources that should either (__A__) help yo
 - [Pentestit Lab Writeups](https://jhalon.github.io/categories.html)
 - [Red Team Notes](https://www.ired.team/)
 - [Red Teaming Toolkit](https://github.com/infosecn1nja/Red-Teaming-Toolkit)
-- [SANS Penetration Testing Blog](https://www.sans.org/blog/?focus-area=offensive-operations
+- [SANS Penetration Testing Blog](https://www.sans.org/blog/?focus-area=offensive-operations)
 - [SpecterOps: BloodHound Blogs](https://posts.specterops.io/bloodhound/home)
 - [SpecterOps: Blog](https://specterops.io/blog/)
 - [SpecterOps YouTube Videos](https://www.youtube.com/@specterops/videos)
@@ -588,13 +588,13 @@ Additionally, there's a very good [Security Certification Roadmap](https://paulj
 
 So, what certifications do I recommend for penetration testing? I’m glad you asked! Here are some of my favorite certifications that can help you break into the pentesting field. I highly recommend the following:
 
+- [CompTIA Security+](https://certification.comptia.org/certifications/security)
 - [HTB Certified Penetration Testing Specialist](https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist)
 - [Offensive Security Certified Professional (OSCP)](https://www.offsec.com/courses/pen-200/)
-- [Offensive Security Experienced Penetration Tester (OSEP)](https://www.offsec.com/courses/pen-300/)
-- [Offensive Security Exploit Developer (OSED)](https://www.offsec.com/courses/exp-301/)
 - [Zero-Point Security: Red Team Ops](https://training.zeropointsecurity.co.uk/courses/red-team-ops)
 - [Zero-Point Security: Red Team Ops II](https://training.zeropointsecurity.co.uk/courses/red-team-ops-ii)
-- [CompTIA Security+](https://certification.comptia.org/certifications/security)
+- [Offensive Security Experienced Penetration Tester (OSEP)](https://www.offsec.com/courses/pen-300/)
+- [Offensive Security Exploit Developer (OSED)](https://www.offsec.com/courses/exp-301/)
 
 Usually the OSCP will be the industry standard, and open more doors for you, but the HTB CPTS is also really good and it's cheaper (~$500 USD). So if you are paying for certificates out of pocket and can't afford much, then I would recommend you take the CPTS and take the OSCP once you can have someone pay for it.
 
@@ -650,6 +650,7 @@ Anyways, here is a list of resources that will help you practice!
 - [Root-Me](https://www.root-me.org/?lang=en)
 - [TryHackMe](https://tryhackme.com/)
 - [Vulnhub](https://www.vulnhub.com/)
+
 ## Caveats and a Word of Caution:
 
 Alright, before we continue any further, let's address the elephant in the room - the overwhelming number of "experts" trying to sell you cybersecurity courses or promising you a six-figure salary in under a year.
@@ -669,6 +670,7 @@ Now this is US specific, but when it comes to the promise of a six-figure salary
 Additionally, I have to say, but if you’re trying to break into cybersecurity for the money, you're setting yourself up for failure. This industry moves so fast that without a genuine passion for the work, you’ll quickly burn out. This field demands constant learning and problem solving, and if you’re not truly invested then you'll struggle to keep up and soon enough the grind will drain you. If you're not genuinely interested in the field, it’s probably better to step away now for your own good, rather than chasing a paycheck that’ll leave you miserable in the long run.
 
 After saying all of this, you might be wondering, "**Why should I trust you**?" Honestly, you shouldn’t. I'm just another person on the internet. But if you're curious about my credentials, at the time of writing this, I have around 9 years of experience in the security industry, with 7 of those years spent in consulting. Everything I’ve shared in this post comes from my own personal experiences and the lessons I’ve learned throughout my career. My goal in writing this post is to help you navigate the cybersecurity field more effectively and avoid pitfalls, but ultimately, I'm also trying to teach you to do your own research and make informed decisions on your own.
+
 ## Burnout:
 
 Burnout and mental health in this field are a critical topic that also needs to be addressed before we move forward. It’s so easy to get lost in the hustle and forget that maintaining a balance in your life is just as important as learning new technical skills.
@@ -686,6 +688,7 @@ Sure, you can look up to those people in the industry and get inspired by their 
 Impostor syndrome is real, and it can kick in hard when you feel like you’re not measuring up. But the truth is, you **are** making progress, even if it doesn’t always feel that way. Remember, this isn’t a sprint; it’s a marathon. Do things step by step at your own pace, take constant breaks, focus on one thing at a time, and don’t try to tackle everything at once. Balance is key.
 
 Alright, with that out of the way, let's get back into the post.
+
 ## The Experience:
 
 With a college degree and a few certificates under your belt, you're on the right path, but is that enough to land you a dream job in security? How can you gain the hands-on experience needed to stand out?
@@ -795,4 +798,4 @@ I truly hope that this post helps you in some way, shape, or form, and I wish yo
 Cheers!
 ## Kudos
 
-I would like to sincerely thank [V3ded](https://twitter.com/v3ded) and [noodlearms](https://x.com/infosecnoodle) for proofreading this blog post, providing critical feedback and adding in a few important details before it's release. You guys are awesome for taking the time to review this monster of a post for accuracy, readability and for providing your expertise. Thank you!
+I would like to sincerely thank [V3ded](https://twitter.com/v3ded) and [noodlearms](https://x.com/infosecnoodle) for proofreading this blog post, providing critical feedback and adding in a few important details before its release. You guys are awesome for taking the time to review this monster of a post for accuracy, readability and for providing your expertise. Thank you!
