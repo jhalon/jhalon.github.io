@@ -11,6 +11,7 @@ permalink: /categories.html
 <ul>
 <li><a href="https://jhalon.github.io/OSCP-Review/">Offensive Security’s PWK & OSCP Review</a></li>
 <li><a href="https://jhalon.github.io/becoming-a-pentester/">So You Want To Be a Pentester?</a></li>
+<li><a href="https://jhalon.github.io/breaking-into-cyber-security/">So You Want To Work in Cyber Security?</a></li>
 <li><a href="https://jhalon.github.io/OSCE-Review/">Offensive Security’s CTP & OSCE Review</a></li>
 </ul>
 
