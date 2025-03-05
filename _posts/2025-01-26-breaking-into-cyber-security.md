@@ -203,6 +203,7 @@ While Network Pentests are complex and require a lot of moving parts, they aren'
 __Resources__: Below are a bunch of resources that should either (__A__) help you get started or (__B__) help advance your knowledge!
 
 - [Active Directory Kill Chain Attack & Defense](https://github.com/infosecn1nja/AD-Attack-Defense)
+- [Active Directory Resources (r/activedirectory)](https://www.reddit.com/r/activedirectory/wiki/ad-resources/)
 - [AD Security](https://adsecurity.org/)
 - [Adversarial Tactics, Techniques & Common Knowledge](https://attack.mitre.org/wiki/Main_Page)
 - [Awesome Pentest](https://github.com/enaqx/awesome-pentest)
