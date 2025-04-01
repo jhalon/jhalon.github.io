@@ -297,6 +297,7 @@ __Resources__: Below are a bunch of resources that should either (__A__) help yo
 
 - [Architecture 1001: x86-64 Assembly](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Arch1001_x86-64_Asm+2021_v1/about)
 - [Architecture 2001: x86-64 OS Internals](https://p.ost2.fyi/courses/course-v1:OpenSecurityTraining2+Arch2001_x86-64_OS_Internals+2021_v1/about)
+- [Awesome List: Reverse Engineering, Exploitation, and More!](https://github.com/0xor0ne/awesome-list)
 - [Awesome Reversing](https://github.com/ReversingID/Awesome-Reversing)
 - [COMPSCI 390R: Reverse Engineering & Vulnerability Analysis](https://pwn.umasscybersec.org/index.html)
 - [CrackMe Challanges](https://crackmes.one/)
