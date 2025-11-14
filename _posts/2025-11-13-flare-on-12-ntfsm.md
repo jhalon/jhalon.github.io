@@ -318,7 +318,7 @@ This issue often arises because Binary Ninja doesn’t automatically detect the 
 
 Okay, now that we have a valid jump table with offsets, the next question is: how do these branches actually work? Where do they jump to?
 
-Well, we already know that the DOS header is dereferenced, and the jump table offset is used to calculate the next address. So, if we take the first value `0x00860241` (state 0) and add it to the base address `0x140000000`, we get the address of the first jump table function: `0x140860241`. From here, press `G`m type in the address, press enter, and that should land us in a function.
+Well, we already know that the DOS header is dereferenced, and the jump table offset is used to calculate the next address. So, if we take the first value `0x00860241` (state 0) and add it to the base address `0x140000000`, we get the address of the first jump table function: `0x140860241`. From here, press `G` type in the address, press enter, and that should land us in a function.
 
 For those who haven’t analyzed the binary yet, you’ll probably see some un-analyzed bytes. To fix that, just press `U` to undefine the area of the address, and then press `c` to define it as code. After doing that, the assembly for the "zero state" branch function should appear and look something like this:
 
@@ -755,7 +755,7 @@ If the queue empties and no valid password is found, that indicates something is
 
 Alright, now that we have our state transition data, and our BFS solver, let's run it and see if it works!
 
-```cmd
+```
 C:\Users\User\Desktop\flare\5_-_ntfsm> python .\solver.py
 Found valid password: iqg0nSeCHnOMPm2Q
 
