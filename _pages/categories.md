@@ -49,6 +49,10 @@ permalink: /categories.html
     <li><a href="https://jhalon.github.io/2018-google-ctf-beginners-pwn-solutions-1/">Google CTF (2018): Beginners Quest - PWN Solutions (1/2)</a></li>
     <li><a href="https://jhalon.github.io/2018-google-ctf-beginners-pwn-solutions-2/">Google CTF (2018): Beginners Quest - PWN Solutions (2/2)</a></li>
   </ul>
+  <li>Flare-On 12 (2025)</li>
+  <ul>
+    <li><a href="https://jhalon.github.io/flare-on-12-ntfsm">Flare-On 12: NTFSM - Solving a Finite State Machine with Binary Ninja</a></li>
+  </ul>
 </ul>
 
 <h2>SANS</h2>
