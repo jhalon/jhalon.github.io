@@ -6,7 +6,9 @@ header:
   overlay_image: side-channel.jpg
 ---
 
-Welcome to Side Channel — a space for caffeine-driven experiments, reverse engineering notes, CTF writeups, and everything in between. While this section will feature plenty of new posts, it’s not meant to replace the deep technical dives you’ll find on my main blog. Think of Side Channel as my corner of the internet to explore, document, and learn new technical concepts without the pressure of perfection. These posts will be quick, technical readsm perfect for enjoying over a cup of coffee.
+Welcome to Side Channel — a space for caffeine-driven experiments, reverse engineering notes, CTF writeups, and everything in between. While this section will feature plenty of new posts, it’s not meant to replace the deep technical dives you’ll find on my main blog.
+
+Think of Side Channel as my corner of the internet to explore, document, and learn new technical concepts without the pressure of perfection. These posts will be quick, technical reads, perfect for enjoying over a cup of coffee.
 
 ## Why Side Channel
 
