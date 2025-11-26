@@ -5,6 +5,9 @@ main:
     
   - title: "Categories"
     url: /categories.html
+  
+  - title: "Side Channel"
+    url: /side-channel
 
   - title: "About"
     url: /about.html

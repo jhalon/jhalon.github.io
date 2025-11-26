@@ -228,11 +228,28 @@ compress_html:
   ignore:
     envs: development
 
+# Collections
+collections:
+  side-channel:
+    output: true
+    permalink: /:collection/:path/
+
 defaults:
   # _posts
   - scope:
       path: ""
       type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: false
+      comments: true
+      share: true
+      related: false
+  # _side-channel
+  - scope:
+      path: ""
+      type: side-channel
     values:
       layout: single
       author_profile: true
