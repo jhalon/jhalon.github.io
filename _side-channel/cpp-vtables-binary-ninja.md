@@ -250,7 +250,7 @@ struct SmartScreenAppReputation_vtable smartscreen::apprep::SmartScreenAppReputa
 }
 ```
 
-Now we have actual function names instead of generic placeholders! Something that immediately caught my eye - several functions reference `WindowsAppReputationBase`. So that seems to be the base class! Remember those `_purecall` stubs we found earlier? This confirms that `SmartScreenAppReputation` inherits from `WindowsAppReputationBase`, and the vtable contains a mix of functions from both classes.
+Now we have actual function names instead of generic placeholders! Looking at the functions, we can see references to several different classes - `SmartScreenAppReputation`, `WindowsAppLookupRequest`, `WindowsAppxLookupRequest`, and `WindowsAppReputationBase`. These appear to be different components within Smart Screen's reputation checking system, handling different types of scans for regular Windows apps vs Appx packages. The presence of `WindowsAppReputationBase` functions suggests there's some inheritance going on, but the exact class hierarchy would require more analysis to confirm.
 
 ## Closing
 
