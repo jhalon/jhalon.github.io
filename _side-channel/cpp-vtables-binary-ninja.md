@@ -250,7 +250,57 @@ struct SmartScreenAppReputation_vtable smartscreen::apprep::SmartScreenAppReputa
 }
 ```
 
-Now we have actual function names instead of generic placeholders! Looking at the functions, we can see references to several different classes - `SmartScreenAppReputation`, `WindowsAppLookupRequest`, `WindowsAppxLookupRequest`, and `WindowsAppReputationBase`. These appear to be different components within Smart Screen's reputation checking system, handling different types of scans for regular Windows apps vs Appx packages. The presence of `WindowsAppReputationBase` functions suggests there's some inheritance going on, but the exact class hierarchy would require more analysis to confirm.
+Now we have actual function names instead of generic placeholders! Looking at the functions, we can see references to several different classes such as `SmartScreenAppReputation`, `WindowsAppLookupRequest`, `WindowsAppxLookupRequest`, and `WindowsAppReputationBase`. But wait... something is off here.
+
+Looking at our parsed vtable we have `SmartScreenAppReputation::'vector deleting destructor'` at offset `0x00`, which makes sense. But then at offset `0x28` we have another destructor for `WindowsAppReputationBase::'vector deleting destructor'`?
+
+That's weird. While it's technically possible for a vtable to reference multiple destructors in complex inheritance scenarios, seeing destructors from two different classes in what should be a single vtable is a red flag. We might have over parsed our vtable.
+
+In this case I actually opened up the vtable in IDA and saw the following:
+
+```c
+.rdata:00000001804A2AB8 ; const smartscreen::apprep::SmartScreenAppReputation::`vftable'
+.rdata:00000001804A2AB8 ??_7SmartScreenAppReputation@apprep@smartscreen@@6B@ dq offset ??_GSmartScreenAppReputation@apprep@smartscreen@@UEAAPEAXI@Z
+; DATA XREF: smartscreen::apprep::SmartScreenAppReputation::SmartScreenAppReputation(void)+21
+; smartscreen::apprep::SmartScreenAppReputation::`scalar deleting destructor'(uint)
+.rdata:00000001804A2AC0 dq offset ?CheckReputation@SmartScreenAppReputation@apprep@smartscreen@@UEBA?AW4AppReputationResult@23@AEBULaunchUxApp@23@AEBUProcess@protocol@@AEBUAppxCheckReputationContext@23@@Z
+; smartscreen::apprep::SmartScreenAppReputation::CheckReputation(smartscreen::apprep::LaunchUxApp const &,protocol::Process const &,smartscreen::apprep::AppxCheckReputationContext const &)
+.rdata:00000001804A2AC8 dq offset ?CheckReputation@SmartScreenAppReputation@apprep@smartscreen@@UEBA?AW4AppReputationResult@23@AEBULaunchUxApp@23@AEBUProcess@protocol@@AEBUExecutableCheckReputationContext@23@@Z
+; smartscreen::apprep::SmartScreenAppReputation::CheckReputation(smartscreen::apprep::LaunchUxApp const &,protocol::Process const &,smartscreen::apprep::ExecutableCheckReputationContext const &)
+
+.rdata:00000001804A2AD0 ; const smartscreen::apprep::WindowsAppLookupRequest::`vftable'
+.rdata:00000001804A2AD0 ??_7WindowsAppLookupRequest@apprep@smartscreen@@6B@ dq offset ?ToJson@WindowsAppLookupRequest@apprep@smartscreen@@UEBA?AV?$Result@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@wp@@XZ
+; smartscreen::apprep::WindowsAppLookupRequest::ToJson(void)
+.rdata:00000001804A2AD0 ; DATA XREF: smartscreen::apprep::WindowsAppLookupRequest::WindowsAppLookupRequest(smartscreen::apprep::WindowsAppLookupRequest const &)+15↑o
+.rdata:00000001804A2AD0 ; smartscreen::apprep::WindowsAppLookupRequest::WindowsAppLookupRequest(void)+C
+```
+
+Well... IDA clearly shows that the `SmartScreenAppReputation` vtable ends at `0x1804A2AC8`, so it only has 3 entries. At offset `0x1804A2AD0` we have a completely different vtable for `WindowsAppLookupRequest`!
+
+We accidentally parsed through multiple consecutive vtables laid out sequentially in the .`rdata` section.
+
+So our actual vtable structure should look like this:
+
+```c
+struct SmartScreenAppReputation_vtable {
+    void* destructor;                    // offset 0x00
+    void* CheckReputation_Appx;          // offset 0x08
+    void* CheckReputation_Exe;           // offset 0x10
+};
+```
+
+Much simpler! This now makes a lot more sense for a derived class that's implementing a couple of virtual functions. After applying the corrected structure in Binary Ninja we will see the following:
+
+```c
+struct SmartScreenAppReputation_vtable smartscreen::apprep::SmartScreenAppReputation::`vftable' = 
+{
+    void* destructor = smartscreen::apprep::SmartScreenAppReputation::`vector deleting destructor'
+    void* CheckReputation_Appx = smartscreen::apprep::SmartScreenAppReputation::CheckReputation
+    void* CheckReputation_Exe = smartscreen::apprep::SmartScreenAppReputation::CheckReputation
+}
+```
+
+Lesson learned, since vtables are sequentially packed in `rdata`, there's no padding or clear delimiter between them. We can't just look at raw bytes and assume where one vtable ends and another begins. 
 
 ## Closing
 
