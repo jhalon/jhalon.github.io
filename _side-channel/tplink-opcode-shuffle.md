@@ -532,7 +532,8 @@ After doing this, we need to rebuild Lua 5.1 and `luadec` with these TP-Link mod
 Running the script handles everything - cloning repos, applying patches, and compiling:
 
 ```shell
-$ ./luadec-tplink-compile.sh                                                       ==================================
+$ ./luadec-tplink-compile.sh
+==================================
 Building luadec with OpenWRT + TP-Link patches
 ==================================
 [1/8] Installing dependencies...
