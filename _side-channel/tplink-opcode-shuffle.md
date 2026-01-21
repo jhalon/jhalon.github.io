@@ -244,7 +244,7 @@ Looking into the header via `hexdump` we can see `LuaQ` which stands for LUA v5.
 | 0x0A    | `08`             | `08`          | **sizeof(lua_Number)** - 8 bytes (double precision float) |
 | 0x0B    | **`00`**         | **`04`**      | **Number type flag**                                      |
 
-Everything looks standard until we hit byte `0x0B`. Byte `0x0B` should be `00` in standard Lua 5.1, where `00` is a floating-point number representation and `01` is a integral number type. But TP-Link's firmware has **`04`** instead. This single byte difference confirms that TP-Link is possibly using a custom Lua VM with modified opcodes or bytecode format, aand it's not that we are using the wrong Lua version.
+Everything looks standard until we hit byte `0x0B`. Byte `0x0B` should be `00` in standard Lua 5.1, where `00` is a floating-point number representation and `01` is a integral number type. But TP-Link's firmware has **`04`** instead. This single byte difference confirms that TP-Link is possibly using a custom Lua VM with modified opcodes or bytecode format.
 
 Now, I'm not super experienced with Lua internals and it's been a while since I've done IoT reverse engineering. So I took to the internet looking for resources that can help me out. Thankfully someone else ran into the same issue as me and documented their solution in "[Unscrambling Lua](https://vovohelo.medium.com/unscrambling-lua-7bccb3d5660)".
 
