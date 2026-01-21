@@ -15,16 +15,17 @@ permalink: /categories.html
 <li><a href="https://jhalon.github.io/OSCE-Review/">Offensive Security’s CTP & OSCE Review</a></li>
 </ul>
 
-<h2>Tutorials</h2>
+
+<h2>Side Channel</h2>
+<ul>
+<li><a href="https://jhalon.github.io/side-channel/cpp-vtables-binary-ninja/">Reconstructing C++ VTables in Binary Ninja</a></li>
+<li><a href="https://jhalon.github.io/side-channel/tplink-opcode-shuffle/">Unshuffling TP-Link: Building a Custom Luadec for Shuffled Opcodes</a></li>
+</ul>
+
+<h2>Reverse Engineering</h2>
 <ul>
 <li><a href="https://jhalon.github.io/re-malicious-macros/">Reverse Engineering Malicious Macros for Fun & Profit</a></li>
 <li><a href="https://jhalon.github.io/reverse-engineering-protocols/">Reverse Engineering Network Protocols</a></li>
-</ul>
-
-<h2>Red Team</h2>
-<ul>
-<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-1/">Red Team Tactics: Utilizing Syscalls in C# - Prerequisite Knowledge</a></li>
-<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-2/">Red Team Tactics: Utilizing Syscalls in C# - Writing The Code</a></li>
 </ul>
 
 <h2>Exploit Development</h2>
@@ -35,6 +36,12 @@ permalink: /categories.html
 <li>Chrome Browser Exploitation, Part 4: Introduction to the V8 Sandbox</li>
 <li>Chrome Browser Exploitation, Part 5: Introduction to Maglev, V8's Mid-Tier Optimizing Compiler</li>
 <li>Chrome Browser Exploitation, Part 5: Analyzing and Exploiting TBD</li>
+</ul>
+
+<h2>Red Team</h2>
+<ul>
+<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-1/">Red Team Tactics: Utilizing Syscalls in C# - Prerequisite Knowledge</a></li>
+<li><a href="https://jhalon.github.io/utilizing-syscalls-in-csharp-2/">Red Team Tactics: Utilizing Syscalls in C# - Writing The Code</a></li>
 </ul>
 
 <h2>Capture The Flag</h2>
